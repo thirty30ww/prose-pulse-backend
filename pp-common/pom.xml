@@ -9,22 +9,14 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>pp-core</artifactId>
+    <artifactId>pp-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pp-core</name>
+    <name>pp-common</name>
 
     <dependencies>
         <dependency>
             <groupId>com.thirty</groupId>
-            <artifactId>module-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.thirty.pp</groupId>
-            <artifactId>pp-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.thirty.pp</groupId>
-            <artifactId>pp-user</artifactId>
+            <artifactId>module-common</artifactId>
         </dependency>
     </dependencies>
 </project>

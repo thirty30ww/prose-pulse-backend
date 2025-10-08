@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-@Order(2) // 确保在事务之前执行
+@Order(0) // 确保在事务之前执行
 @Slf4j
 public class PPAutoDataSourceAspect {
     @Before("execution(* com.thirty.pp.user.service..*(..))")
@@ -24,6 +24,6 @@ public class PPAutoDataSourceAspect {
 
     @After("execution(* com.thirty.pp.user.service..*(..))")
     public void clearPPUserDataSource() {
-        DynamicDataSourceContextHolder.clear();
+        DynamicDataSourceContextHolder.poll();
     }
 }

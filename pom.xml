@@ -19,6 +19,7 @@
     <modules>
         <module>pp-core</module>
         <module>pp-user</module>
+        <module>pp-common</module>
     </modules>
 
     <dependencyManagement>
@@ -31,6 +32,11 @@
             <dependency>
                 <groupId>com.thirty.pp</groupId>
                 <artifactId>pp-user</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thirty.pp</groupId>
+                <artifactId>pp-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

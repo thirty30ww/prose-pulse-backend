@@ -3,7 +3,7 @@ server:
 
 project:
   info:  # 项目信息
-    title: Auth Matrix  # 项目标题
+    title: Prose Pulse  # 项目标题
     version: 1.0.0  # 项目版本
     author: thirty30ww  # 项目作者
     email: 2834379272@qq.com  # 项目作者邮箱

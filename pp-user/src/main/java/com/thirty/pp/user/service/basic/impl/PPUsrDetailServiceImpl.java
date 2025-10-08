@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class PPUsrDetailServiceImpl extends ServiceImpl<PPUsrDetailMapper, PPUsrDetail>
     implements PPUsrDetailService{
-
 }
 
 

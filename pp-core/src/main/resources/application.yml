@@ -45,6 +45,11 @@ spring:
           username: your_db_username  # 替换成你的数据库用户名
           password: your_db_password  # 替换成你的数据库密码
           driver-class-name: com.mysql.cj.jdbc.Driver
+        pp_user:
+          url: jdbc:mysql://localhost:3306/pp_user?allowPublicKeyRetrieval=true&useSSL=false
+          username: your_db_username  # 替换成你的数据库用户名
+          password: your_db_password  # 替换成你的数据库密码
+          driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:
       host: localhost

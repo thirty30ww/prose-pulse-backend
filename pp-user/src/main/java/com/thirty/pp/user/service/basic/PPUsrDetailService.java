@@ -9,5 +9,11 @@ import com.thirty.pp.user.model.entity.PPUsrDetail;
 * @createDate 2025-09-30 14:56:37
 */
 public interface PPUsrDetailService extends IService<PPUsrDetail> {
-    
+    /**
+     * 根据用户邮箱查询用户拓展信息
+     *
+     * @param email 用户邮箱
+     * @return 用户拓展信息（如果不存在则返回空对象）
+     */
+    PPUsrDetail getByEmail(String email);
 }

@@ -1,21 +1,23 @@
 package com.thirty.pp.user.controller;
 
 import com.thirty.common.annotation.OperateLog;
+import com.thirty.common.annotation.OperateModule;
 import com.thirty.common.enums.model.OperationType;
 import com.thirty.common.model.dto.ResultDTO;
+import com.thirty.pp.user.model.dto.PPAddUserDTO;
 import com.thirty.pp.user.model.vo.PPUserVO;
 import com.thirty.pp.user.service.facade.PPUserFacade;
 import com.thirty.user.enums.result.UserResultCode;
 import com.thirty.user.utils.JwtUtil;
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@OperateModule("用户管理")
 @RequestMapping("/pp/user")
 @Order(Ordered.HIGHEST_PRECEDENCE) // 添加优先级
 public class PPUserController {
@@ -24,13 +26,31 @@ public class PPUserController {
     @Resource
     private JwtUtil jwtUtil;
 
-    @GetMapping({"/get"})
+    /**
+     * 获取用户信息
+     */
+    @GetMapping("/get")
     @OperateLog(
             type = OperationType.SELECT,
             description = "获取用户信息"
     )
     public ResultDTO<PPUserVO> getUser(@RequestHeader("Authorization") String authHeader) {
-        Integer userId = this.jwtUtil.getUserIdFromAuthHeader(authHeader);
+        Integer userId = jwtUtil.getUserIdFromAuthHeader(authHeader);
         return ResultDTO.of(UserResultCode.USER_INFO_GET_SUCCESS, ppUserFacade.getUser(userId));
+    }
+
+    /**
+     * 添加用户
+     */
+    @PostMapping("/add")
+    @PreAuthorize("hasAuthority('user:add')")
+    @OperateLog(
+            type = OperationType.INSERT,
+            description = "添加用户"
+    )
+    public ResultDTO<Void> addUser(@RequestBody @Valid PPAddUserDTO dto, @RequestHeader(value = "Authorization") String authHeader) {
+        Integer userId = jwtUtil.getUserIdFromAuthHeader(authHeader);
+        ppUserFacade.addUser(dto, userId);
+        return ResultDTO.of(UserResultCode.USER_ADD_SUCCESS);
     }
 }

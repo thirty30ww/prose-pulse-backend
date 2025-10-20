@@ -18,6 +18,10 @@
             <groupId>com.thirty</groupId>
             <artifactId>module-user</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.thirty.pp</groupId>
+            <artifactId>pp-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

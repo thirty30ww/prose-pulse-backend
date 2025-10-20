@@ -18,7 +18,7 @@ class PPApplicationTests {
     @Test
     public void sendSimpleEmail() {
         emailUtil.send(
-                "1036646195@qq.com",      // 收件人
+                "2834379272@qq.com",      // 收件人
                 "测试邮件主题",            // 主题
                 "这是一封测试邮件内容"     // 内容
         );

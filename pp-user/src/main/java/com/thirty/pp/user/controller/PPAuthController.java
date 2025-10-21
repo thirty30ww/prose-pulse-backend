@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pp/auth")
-@OperateModule("权限管理")
+@OperateModule("认证管理")
 public class PPAuthController {
     @Resource
     private PPAuthFacade ppAuthFacade;

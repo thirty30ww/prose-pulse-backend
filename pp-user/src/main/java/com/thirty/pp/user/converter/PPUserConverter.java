@@ -1,6 +1,7 @@
 package com.thirty.pp.user.converter;
 
 import com.thirty.pp.user.model.dto.PPAddUserDTO;
+import com.thirty.pp.user.model.dto.PPRegisterDTO;
 import com.thirty.pp.user.model.entity.PPUsrDetail;
 import com.thirty.pp.user.model.vo.PPUserVO;
 import com.thirty.user.model.dto.AddUserDTO;
@@ -30,8 +31,15 @@ public interface PPUserConverter {
      * @param id 用户ID
      * @return 转换后的PPUsrDetail
      */
-    @Mapping(source = "dto.email", target = "email")
     PPUsrDetail toPPUsrDetail(PPAddUserDTO dto, Integer id);
+    
+    /**
+     * 将PPRegisterDTO转换为PPUsrDetail
+     * @param dto 注册用户DTO
+     * @param id 用户ID
+     * @return 转换后的PPUsrDetail
+     */
+    PPUsrDetail toPPUsrDetail(PPRegisterDTO dto, Integer id);
 
     /**
      * 将PPAddUserDTO转换为AddUserDTO

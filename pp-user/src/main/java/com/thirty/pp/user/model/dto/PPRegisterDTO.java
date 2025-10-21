@@ -10,4 +10,7 @@ import lombok.EqualsAndHashCode;
 public class PPRegisterDTO extends RegisterDTO {
     @NotBlank(message = "邮箱不能为空")
     private String email;
+
+    @NotBlank(message = "验证码不能为空")
+    private String captcha;
 }

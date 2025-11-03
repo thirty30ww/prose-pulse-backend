@@ -1,4 +1,4 @@
-package com.thirty.pp.user.service.domain;
+package com.thirty.pp.user.service.domain.user;
 
 import com.thirty.pp.user.model.entity.PPUsrDetail;
 

@@ -1,4 +1,4 @@
-package com.thirty.pp.user.service.domain;
+package com.thirty.pp.user.service.domain.auth;
 
 public interface PPAuthDomain {
     /**

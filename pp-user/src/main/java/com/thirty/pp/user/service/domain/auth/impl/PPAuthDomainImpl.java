@@ -1,8 +1,8 @@
-package com.thirty.pp.user.service.domain.impl;
+package com.thirty.pp.user.service.domain.auth.impl;
 
 import com.thirty.pp.user.constant.CaptchaConstant;
 import com.thirty.pp.user.service.basic.CaptchaService;
-import com.thirty.pp.user.service.domain.PPAuthDomain;
+import com.thirty.pp.user.service.domain.auth.PPAuthDomain;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

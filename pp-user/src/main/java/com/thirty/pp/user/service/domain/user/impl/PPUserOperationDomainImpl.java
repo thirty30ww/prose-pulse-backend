@@ -1,8 +1,8 @@
-package com.thirty.pp.user.service.domain.impl;
+package com.thirty.pp.user.service.domain.user.impl;
 
 import com.thirty.pp.user.model.entity.PPUsrDetail;
 import com.thirty.pp.user.service.basic.PPUsrDetailService;
-import com.thirty.pp.user.service.domain.PPUserOperationDomain;
+import com.thirty.pp.user.service.domain.user.PPUserOperationDomain;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.thirty.pp.user.service.domain.impl;
+package com.thirty.pp.user.service.domain.user.impl;
 
 import com.thirty.pp.user.model.entity.PPUsrDetail;
 import com.thirty.pp.user.service.basic.PPUsrDetailService;
@@ -6,7 +6,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PPUserQueryDomain implements com.thirty.pp.user.service.domain.PPUserQueryDomain {
+public class PPUserQueryDomain implements com.thirty.pp.user.service.domain.user.PPUserQueryDomain {
     @Resource
     private PPUsrDetailService ppUsrDetailService;
 

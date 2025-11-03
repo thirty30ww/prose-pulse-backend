@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public enum PPUserResultCode implements IResult {
 
-    EMAIL_IS_EXIST(6001, "邮箱已存在"),
+    EMAIL_IS_EXIST(7001, "邮箱已存在"),
     ;
 
     private final Integer code;

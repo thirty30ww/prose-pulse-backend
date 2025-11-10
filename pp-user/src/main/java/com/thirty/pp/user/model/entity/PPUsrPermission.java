@@ -84,7 +84,7 @@ public class PPUsrPermission implements Serializable {
     /**
      * 获取父权限下的所有子权限，按order升序排序
      * @param sameParentPermissions 父权限下的所有子权限
-     * @param permissionId 权限ID
+     * @param order 权限ID
      * @return 子权限列表
      */
     public static List<PPUsrPermission> getBehindPermissions(List<PPUsrPermission> sameParentPermissions, Integer order) {

@@ -1,6 +1,5 @@
 package com.thirty.pp.user.service.facade.impl;
 
-import com.thirty.pp.user.model.dto.PPPermissionDTO;
 import com.thirty.pp.user.service.domain.permission.PPPermissionOperationDomain;
 import com.thirty.pp.user.service.domain.permission.PPPermissionValidationDomain;
 import com.thirty.user.service.basic.UserService;
@@ -13,8 +12,4 @@ public class PPPermissionFacadeImpl {
     private PPPermissionOperationDomain ppPermissionOperationDomain;
     @Resource
     private UserService userService;
-
-    public Integer addPermission(Integer userId, PPPermissionDTO dto) {
-
-    }
 }

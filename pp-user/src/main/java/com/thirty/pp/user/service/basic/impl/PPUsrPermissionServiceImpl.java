@@ -103,7 +103,7 @@ public class PPUsrPermissionServiceImpl extends ServiceImpl<PPUsrPermissionMappe
         // 获得 order 大于当前权限的所有权限
         List<PPUsrPermission> behindPermissions = PPUsrPermission.getBehindPermissions(sameParentPermissions, permission.getOrder());
         // 后面权限的 order 值减1
-        PPUsrPermission.reduceOrder(behindPermissions, 1);
+        PPUsrPermission.reduceOrder(behindPermissions);
     }
 }
 

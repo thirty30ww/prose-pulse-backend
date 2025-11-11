@@ -24,6 +24,7 @@ public class PPPermissionOperationDomainImpl implements PPPermissionOperationDom
      */
     @Override
     public Integer addPermission(PPPermissionDTO dto) {
+        // 转化为实体类
         PPUsrPermission permission = PPPermissionConverter.INSTANCE.toPPUsrPermission(dto);
 
         // 设置权限的order值
@@ -43,7 +44,9 @@ public class PPPermissionOperationDomainImpl implements PPPermissionOperationDom
         PPUsrPermission oldPermission = ppUsrPermissionService.getById(permission.getId());
 
         // 如果修改了父权限ID
-        if (!Objects.equals(permission.getParentId(), oldPermission.getParentId())) ppUsrPermissionService.modifyParentId(oldPermission, permission);
+        if (!Objects.equals(permission.getParentId(), oldPermission.getParentId()))
+            ppUsrPermissionService.modifyParentId(oldPermission, permission);
+
         // 更新权限
         return ppUsrPermissionService.modifyPermission(permission);
     }

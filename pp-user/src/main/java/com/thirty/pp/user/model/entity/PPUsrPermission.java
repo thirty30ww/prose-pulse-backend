@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import io.github.thirty30ww.defargs.annotation.DefaultValue;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +44,11 @@ public class PPUsrPermission implements Serializable {
     private String permissionCode;
 
     /**
+     * 权限类型 1-目录，2-菜单，3-按钮
+     */
+    private Integer type;
+
+    /**
      * 父权限ID(根权限的parent_id为0)
      */
     private Integer parentId;
@@ -78,6 +84,7 @@ public class PPUsrPermission implements Serializable {
     @TableLogic
     private Boolean isDelete;
 
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 

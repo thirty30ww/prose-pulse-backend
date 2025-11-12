@@ -12,5 +12,5 @@ import java.util.List;
 */
 public interface PPUsrRolePermissionService extends IService<PPUsrRolePermission> {
 
-    List<Integer> getByRoleIds(List<Integer> roleId);
+    List<Integer> getPermissionIdsByRoleIds(List<Integer> roleIds);
 }

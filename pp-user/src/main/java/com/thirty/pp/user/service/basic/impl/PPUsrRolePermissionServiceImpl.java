@@ -17,14 +17,13 @@ import java.util.List;
 @Service
 public class PPUsrRolePermissionServiceImpl extends ServiceImpl<PPUsrRolePermissionMapper, PPUsrRolePermission>
     implements PPUsrRolePermissionService{
-
     /**
      * 根据角色ID获取权限ID列表
      * @param roleIds 角色ID列表
      * @return 权限ID列表
      */
     @Override
-    public List<Integer> getByRoleIds(List<Integer> roleIds) {
+    public List<Integer> getPermissionIdsByRoleIds(List<Integer> roleIds) {
         LambdaQueryWrapper<PPUsrRolePermission> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.select(PPUsrRolePermission::getPermissionId)
                 .in(PPUsrRolePermission::getRoleId, roleIds);

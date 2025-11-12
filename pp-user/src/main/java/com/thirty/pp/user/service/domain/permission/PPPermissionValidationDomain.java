@@ -9,7 +9,7 @@ public interface PPPermissionValidationDomain {
      * @param permissionIds 权限ID列表
      * @return 是否有指定权限
      */
-    boolean validateRoleHasPermissions(List<Integer> roleIds, List<Integer> permissionIds);
+    boolean validateRolesHasPermissions(List<Integer> roleIds, List<Integer> permissionIds);
 
      /**
       * 验证角色是否有指定权限
@@ -17,5 +17,5 @@ public interface PPPermissionValidationDomain {
       * @param permissionId 权限ID
       * @return 是否有指定权限
       */
-     boolean validateRoleHasPermission(List<Integer> roleIds, Integer permissionId);
+     boolean validateRolesHasPermission(List<Integer> roleIds, Integer permissionId);
 }

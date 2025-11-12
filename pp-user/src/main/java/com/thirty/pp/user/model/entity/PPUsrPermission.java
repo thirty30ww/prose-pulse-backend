@@ -89,6 +89,15 @@ public class PPUsrPermission implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 从权限列表中提取权限ID列表
+     * @param permissions 权限列表
+     * @return 权限ID列表
+     */
+    public static List<Integer> extractIds(List<PPUsrPermission> permissions) {
+        return permissions.stream().map(PPUsrPermission::getId).collect(Collectors.toList());
+    }
+
+    /**
      * 获取父权限下的所有子权限，按order升序排序
      * @param sameParentPermissions 父权限下的所有子权限
      * @param order 权限ID

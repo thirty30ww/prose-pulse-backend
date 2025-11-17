@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.thirty</groupId>
-            <artifactId>module-user</artifactId>
+            <artifactId>am-user</artifactId>
         </dependency>
 
         <dependency>

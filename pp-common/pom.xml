@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.thirty</groupId>
-            <artifactId>module-common</artifactId>
+            <artifactId>am-common</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -9,7 +9,7 @@ import java.util.List;
 public class PPPermissionVO {
     PPUsrPermission node;
     Boolean hasPermission;
-    List<PPPermissionVO> child;
+    List<PPPermissionVO> children;
 
     /**
      * 为每个权限VO添加是否有该权限的标志，如果权限ID列表包含该权限ID，则设置为true，否则为false

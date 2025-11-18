@@ -78,7 +78,7 @@ public class PPPermissionQueryDomainImpl implements PPPermissionQueryDomain {
                 permissionVOS,
                 permissionVO -> permissionVO.getNode().getId(),
                 permissionVO -> permissionVO.getNode().getParentId(),
-                PPPermissionVO::getChild,
+                PPPermissionVO::getChildren,
                 rootParentId
         );
     }

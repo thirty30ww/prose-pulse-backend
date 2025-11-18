@@ -1,10 +1,11 @@
 package com.thirty.pp.user.service.basic.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.thirty.pp.user.mapper.PPUsrPermissionMapper;
 import com.thirty.pp.user.model.entity.PPUsrPermission;
 import com.thirty.pp.user.service.basic.PPUsrPermissionService;
+import io.github.thirty30ww.defargs.annotation.DefaultValue;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,9 +48,9 @@ public class PPUsrPermissionServiceImpl extends ServiceImpl<PPUsrPermissionMappe
      */
     @Override
     public List<PPUsrPermission> getByParentId(Integer parentId) {
-        QueryWrapper<PPUsrPermission> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("parent_id", parentId)
-                .orderByAsc("order");
+        LambdaQueryWrapper<PPUsrPermission> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PPUsrPermission::getParentId, parentId)
+                .orderByAsc(PPUsrPermission::getOrder);
         return this.list(queryWrapper);
     }
 
@@ -60,10 +61,10 @@ public class PPUsrPermissionServiceImpl extends ServiceImpl<PPUsrPermissionMappe
      */
     @Override
     public Integer getLastOrderByParentId(Integer ParentId) {
-        QueryWrapper<PPUsrPermission> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("order")
-                .eq("parent_id", ParentId)
-                .orderByDesc("order")
+        LambdaQueryWrapper<PPUsrPermission> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.select(PPUsrPermission::getOrder)
+                .eq(PPUsrPermission::getParentId, ParentId)
+                .orderByDesc(PPUsrPermission::getOrder)
                 .last("limit 1");
         PPUsrPermission permission = this.getOne(queryWrapper);
         return permission.getOrder();
@@ -104,6 +105,21 @@ public class PPUsrPermissionServiceImpl extends ServiceImpl<PPUsrPermissionMappe
         List<PPUsrPermission> behindPermissions = PPUsrPermission.getBehindPermissions(sameParentPermissions, permission.getOrder());
         // 后面权限的 order 值减1
         PPUsrPermission.reduceOrder(behindPermissions);
+    }
+
+    /**
+     * 获取所有权限，按parent_id升序，order升序排序
+     * @param onlyNeedVerify 是否仅包含需要验证的权限，默认值为true
+     * @return 所有权限列表
+     */
+    @Override
+    public List<PPUsrPermission> getPermissions(@DefaultValue("true") Boolean onlyNeedVerify) {
+        LambdaQueryWrapper<PPUsrPermission> queryWrapper = new LambdaQueryWrapper<>();
+        if (!onlyNeedVerify) {
+            queryWrapper.eq(PPUsrPermission::getNeedVerify, true);
+        }
+        queryWrapper.orderByAsc(PPUsrPermission::getParentId).orderByAsc(PPUsrPermission::getOrder);
+        return this.list(queryWrapper);
     }
 }
 

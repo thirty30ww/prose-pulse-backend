@@ -2,6 +2,7 @@ package com.thirty.pp.user.service.basic;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.thirty.pp.user.model.entity.PPUsrPermission;
+import io.github.thirty30ww.defargs.annotation.Omittable;
 
 import java.util.List;
 
@@ -58,4 +59,11 @@ public interface PPUsrPermissionService extends IService<PPUsrPermission> {
       * @param permission 权限实体
       */
     void connectNeighborPermissions(PPUsrPermission permission);
+
+    /**
+     * 获取所有权限，按parent_id升序，order升序排序
+     * @param onlyNeedVerify 是否仅包含需要验证的权限，默认值为true
+     * @return 所有权限列表
+     */
+    List<PPUsrPermission> getPermissions(@Omittable Boolean onlyNeedVerify);
 }

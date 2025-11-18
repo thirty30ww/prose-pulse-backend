@@ -3,10 +3,12 @@ package com.thirty.pp.user.service.domain.permission.impl;
 import com.thirty.pp.user.service.domain.permission.PPPermissionQueryDomain;
 import com.thirty.pp.user.service.domain.permission.PPPermissionValidationDomain;
 import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 
+@Service
 public class PPPermissionValidationDomainImpl  implements PPPermissionValidationDomain {
 
     @Resource

@@ -56,6 +56,7 @@ public class PPUsrPermission implements Serializable {
     /**
      * 权限排序
      */
+    @TableField(value = "`order`")
     private Integer order;
 
     /**

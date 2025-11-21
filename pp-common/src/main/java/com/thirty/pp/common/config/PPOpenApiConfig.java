@@ -13,18 +13,15 @@ public class PPOpenApiConfig {
     public GroupedOpenApi ppUserApi() {
         return GroupedOpenApi.builder()
                 .group("覆盖用户模块")  // 分组名称
-                .pathsToMatch("/pp/user/**")  // 匹配的路径
+                .pathsToMatch("/pp/user/**", "/pp/auth/**")  // 匹配的路径
                 .build();
     }
 
-    /**
-     * 覆盖权限模块API分组
-     */
     @Bean
-    public GroupedOpenApi ppAuthApi() {
+    public GroupedOpenApi ppPermissionApi() {
         return GroupedOpenApi.builder()
-                .group("覆盖权限模块")  // 分组名称
-                .pathsToMatch("/pp/auth/**")  // 匹配的路径
+                .group("前台权限模块")  // 分组名称
+                .pathsToMatch("/pp/permission/**")  // 匹配的路径
                 .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.thirty.pp.user.model.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.thirty.pp.user.enums.model.PPPermissionType;
 import io.github.thirty30ww.defargs.annotation.DefaultValue;
 import lombok.Data;
 
@@ -46,7 +47,7 @@ public class PPUsrPermission implements Serializable {
     /**
      * 权限类型 1-目录，2-菜单，3-按钮
      */
-    private Integer type;
+    private PPPermissionType type;
 
     /**
      * 父权限ID(根权限的parent_id为0)

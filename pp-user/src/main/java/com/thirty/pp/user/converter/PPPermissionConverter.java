@@ -4,6 +4,7 @@ import com.thirty.pp.user.model.dto.PPPermissionDTO;
 import com.thirty.pp.user.model.entity.PPUsrPermission;
 import com.thirty.pp.user.model.vo.PPPermissionVO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public interface PPPermissionConverter {
      * @param permission 权限实体
      * @return 转换后的PPPermissionVO
      */
+    @Mapping(source = ".", target = "node")
     PPPermissionVO toPPPermissionVO(PPUsrPermission permission);
 
      /**
